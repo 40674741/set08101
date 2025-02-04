@@ -1,21 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SET08101 - Web Tech</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racecourse</title>
     <style>
         body {
-            background-color: black; 
-            color: white; 
-            text-align: center;
-            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #7ec8e3;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .racecourse {
+            width: 800px;
+            height: 400px;
+            border: 5px solid #333;
+            background-color: #228B22;
+            position: relative;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        #racecar {
+            width: 40px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            top: 190px;
+            left: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
 <body>
-    <h1>Hello Web Tech I am Hacky Chan!</h1>
+    <div class="racecourse">
+        <div id="racecar"></div>
+    </div>
 
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8E6K2JwHxJRmWTncbShwCzbt1S5Fo7SJzZQ&s" alt="V for Vendetta Mask">
-    
-    <p>You're gettin' hacked rn!</p>
+    <script>
+        const racecar = document.getElementById('racecar');
+        let positionX = 10;
+        let positionY = 190;
+
+        document.addEventListener('keydown', (event) => {
+            const step = 10;
+
+            switch (event.key) {
+                case 'ArrowUp':
+                    if (positionY > 0) positionY -= step;
+                    break;
+                case 'ArrowDown':
+                    if (positionY < 380) positionY += step;
+                    break;
+                case 'ArrowLeft':
+                    if (positionX > 0) positionX -= step;
+                    break;
+                case 'ArrowRight':
+                    if (positionX < 760) positionX += step;
+                    break;
+            }
+
+            racecar.style.top = `${positionY}px`;
+            racecar.style.left = `${positionX}px`;
+        });
+    </script>
 </body>
-   
+</html>

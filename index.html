@@ -1,21 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SET08101 - Web Tech</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
     <style>
         body {
-            background-color: black; 
-            color: white; 
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        #timer {
+            font-size: 5rem;
             text-align: center;
-            font-family: Arial, sans-serif; 
         }
     </style>
 </head>
 <body>
-    <h1>Hello Web Tech I am Hacky Chan!</h1>
+    <div id="timer">Loading...</div>
 
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8E6K2JwHxJRmWTncbShwCzbt1S5Fo7SJzZQ&s" alt="V for Vendetta Mask">
-    
-    <p>You're gettin' hacked rn!</p>
-    
-   
+    <script>
+        function updateTimer() {
+            const targetDate = new Date('2026-01-01T00:00:00');
+            const currentDate = new Date();
+            const timeRemaining = targetDate - currentDate;
+
+            if (timeRemaining <= 0) {
+                document.getElementById('timer').innerText = 'Happy New Year!';
+                clearInterval(timerInterval);
+                return;
+            }
+
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            document.getElementById('timer').innerText = 
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer(); // Initial call to display the timer immediately
+    </script>
+</body>
+</html>

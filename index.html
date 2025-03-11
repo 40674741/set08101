@@ -8,6 +8,94 @@
 </head>
 <body>
 
+    <!-- Wrap all content in the container div -->
+    <div class="container">
+        <h1>Higher or Lower Game</h1>
+        <p>Guess a number between 1 and 100</p>
+        
+        <input type="number" id="guess" placeholder="Enter your guess" min="1" max="100">
+        <button onclick="checkGuess()">Submit</button>
+        <button id="restart" onclick="restartGame()">Restart</button>
+
+        <p id="message"></p>
+        <p id="attempts">Attempts left: 10</p>
+        <img id="dealer" src="evilLoanshark.jpg" alt="Dealer" class="hidden">
+    </div>
+
+    <script>
+        let randomNumber;
+        let attemptsLeft;
+
+        function startGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attemptsLeft = 10;
+            document.getElementById("message").textContent = "";
+            document.getElementById("attempts").textContent = "Attempts left: " + attemptsLeft;
+            document.getElementById("guess").disabled = false;
+            document.getElementById("dealer").classList.add("hidden");
+            document.getElementById("restart").classList.add("hidden");
+        }
+
+        function checkGuess() {
+            let userGuess = parseInt(document.getElementById("guess").value);
+            let message = document.getElementById("message");
+            let dealerImage = document.getElementById("dealer");
+            let attemptsText = document.getElementById("attempts");
+            dealerImage.classList.remove("hidden");
+
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                message.textContent = "Please enter a valid number between 1 and 100.";
+                message.style.color = "red";
+                return;
+            }
+
+            if (attemptsLeft > 0) {
+                attemptsLeft--;
+                attemptsText.textContent = "Attempts left: " + attemptsLeft;
+            }
+
+            if (attemptsLeft === 0) {
+                message.textContent = "Game Over! The correct number was " + randomNumber + ".";
+                message.style.color = "red";
+                document.getElementById("guess").disabled = true;
+                document.getElementById("restart").classList.remove("hidden");
+                return;
+            }
+
+            if (userGuess < randomNumber) {
+                message.textContent = "Too low! Try again.";
+                message.style.color = "blue";
+            } else if (userGuess > randomNumber) {
+                message.textContent = "Too high! Try again.";
+                message.style.color = "orange";
+            } else {
+                message.textContent = "Correct! You guessed it!";
+                message.style.color = "green";
+                document.getElementById("guess").disabled = true;
+                document.getElementById("restart").classList.remove("hidden");
+            }
+        }
+
+        function restartGame() {
+            startGame();
+            document.getElementById("guess").value = "";
+        }
+
+        startGame();
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher or Lower Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
     <h1>Higher or Lower Game</h1>
     <p>Guess a number between 1 and 100</p>
     

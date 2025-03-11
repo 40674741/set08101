@@ -14,34 +14,35 @@
         <p>Guess a number between 1 and 100</p>
         
         <input type="number" id="guess" placeholder="Enter your guess" min="1" max="100">
-        <button onclick="checkGuess()">Submit</button>
+        <button id="submit" onclick="checkGuess()">Submit</button>
         <button id="restart" onclick="restartGame()">Restart</button>
 
         <p id="message"></p>
         <p id="attempts">Attempts left: 10</p>
-        <img id="dealer" src="Loanshark.png" alt="Dealer" class="hidden">
     </div>
 
     <script>
         let randomNumber;
         let attemptsLeft;
+        let gameOver = false;
 
         function startGame() {
             randomNumber = Math.floor(Math.random() * 100) + 1;
             attemptsLeft = 10;
+            gameOver = false;
             document.getElementById("message").textContent = "";
             document.getElementById("attempts").textContent = "Attempts left: " + attemptsLeft;
             document.getElementById("guess").disabled = false;
-            document.getElementById("dealer").classList.add("hidden");
+            document.getElementById("submit").disabled = false;
             document.getElementById("restart").classList.add("hidden");
         }
 
         function checkGuess() {
+            if (gameOver) return; // Stop further guesses once the game ends
+
             let userGuess = parseInt(document.getElementById("guess").value);
             let message = document.getElementById("message");
-            let dealerImage = document.getElementById("dealer");
             let attemptsText = document.getElementById("attempts");
-            dealerImage.classList.remove("hidden");
 
             if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
                 message.textContent = "Please enter a valid number between 1 and 100.";
@@ -54,14 +55,6 @@
                 attemptsText.textContent = "Attempts left: " + attemptsLeft;
             }
 
-            if (attemptsLeft === 0) {
-                message.textContent = "Game Over! The correct number was " + randomNumber + ".";
-                message.style.color = "red";
-                document.getElementById("guess").disabled = true;
-                document.getElementById("restart").classList.remove("hidden");
-                return;
-            }
-
             if (userGuess < randomNumber) {
                 message.textContent = "Too low! Try again.";
                 message.style.color = "blue";
@@ -71,9 +64,22 @@
             } else {
                 message.textContent = "Correct! You guessed it!";
                 message.style.color = "green";
-                document.getElementById("guess").disabled = true;
-                document.getElementById("restart").classList.remove("hidden");
+                endGame(); // End the game once the correct number is guessed
+                return;
             }
+
+            if (attemptsLeft === 0) {
+                message.textContent = "Game Over! The correct number was " + randomNumber + ".";
+                message.style.color = "red";
+                endGame();
+            }
+        }
+
+        function endGame() {
+            gameOver = true;
+            document.getElementById("guess").disabled = true;
+            document.getElementById("submit").disabled = true;
+            document.getElementById("restart").classList.remove("hidden");
         }
 
         function restartGame() {

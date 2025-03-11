@@ -65,7 +65,6 @@ function updateRecord(currentScore) {
         bestRecord = currentScore;
         localStorage.setItem('bestRecord', bestRecord);
         document.getElementById("record").textContent = `Best Record: ${bestRecord} guesses`;
-        alert(`New record! You guessed it in ${currentScore} tries!`);
     }
 }
 

@@ -17,7 +17,7 @@
 
     <p id="message"></p>
     <p id="attempts">Attempts left: 10</p>
-    <img id="dealer" src="evilLoanshark.jpg" alt="Dealer" style="display: none;">
+    <img id="dealer" src="evilLoanshark.jpg" alt="Dealer" class="hidden">
 
     <script>
         let randomNumber;
@@ -29,8 +29,8 @@
             document.getElementById("message").textContent = "";
             document.getElementById("attempts").textContent = "Attempts left: " + attemptsLeft;
             document.getElementById("guess").disabled = false;
-            document.getElementById("dealer").style.display = "none";
-            document.getElementById("restart").style.display = "none";
+            document.getElementById("dealer").classList.add("hidden");
+            document.getElementById("restart").classList.add("hidden");
         }
 
         function checkGuess() {
@@ -38,7 +38,7 @@
             let message = document.getElementById("message");
             let dealerImage = document.getElementById("dealer");
             let attemptsText = document.getElementById("attempts");
-            dealerImage.style.display = "block";
+            dealerImage.classList.remove("hidden");
 
             if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
                 message.textContent = "Please enter a valid number between 1 and 100.";
@@ -55,7 +55,7 @@
                 message.textContent = "Game Over! The correct number was " + randomNumber + ".";
                 message.style.color = "red";
                 document.getElementById("guess").disabled = true;
-                document.getElementById("restart").style.display = "block";
+                document.getElementById("restart").classList.remove("hidden");
                 return;
             }
 
@@ -69,7 +69,7 @@
                 message.textContent = "Correct! You guessed it!";
                 message.style.color = "green";
                 document.getElementById("guess").disabled = true;
-                document.getElementById("restart").style.display = "block";
+                document.getElementById("restart").classList.remove("hidden");
             }
         }
 

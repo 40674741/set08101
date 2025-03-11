@@ -3,135 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Board Game Grid</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Higher or Lower Game</title>
     <style>
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            text-align: center;
+            margin-top: 50px;
         }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #333;
-            padding: 1rem;
-            color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 10;
+        input {
+            padding: 10px;
+            font-size: 16px;
         }
-
-        .navbar h1 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        .navbar-content {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .ad-space {
-            width: 150px;
-            height: 50px;
-        }
-
-        .ad-space img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 4px;
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin: 10px;
             cursor: pointer;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
         }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-            transition: background 0.3s;
+        #dealer {
+            width: 200px;
+            margin-top: 20px;
         }
-
-        .nav-links a:hover {
-            background-color: #575757;
-            border-radius: 4px;
-        }
-
-        .board-container {
-            flex: 1;
-            padding: 2rem;
-        }
-
-        .footer {
-            background-color: #222;
-            color: white;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9rem;
-        }
-
-        .btc-link {
-            margin-right: auto;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .github-link {
-            text-decoration: none;
-            color: white;
-            font-size: 0.9rem;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .github-link:hover {
-            text-decoration: underline;
+        #restart {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <h1>**Shaun logo here**</h1>
-        <div class="navbar-content">
-            <!-- Ad Space with an image link -->
-            <a class="ad-space" href="ad-page.html" target="_blank">
-                <img src="https://cdn2.vectorstock.com/i/1000x1000/53/81/place-your-ads-here-rubber-stamp-vector-11775381.jpg" alt="Ad Space">
-            </a>
-            <div class="nav-links">
-                <a href="#">New Map</a>
-                <a href="#">New Character Marker</a>
-                <a href="#">Dice Roll</a>
-            </div>
-        </div>
-    </div>
 
-    <div class="board-container">
-        <div id="board">
-            <!-- <image class="map-image" src="storm.jpg"></image> -->
-        </div>
-    </div>
+    <h1>Higher or Lower Game</h1>
+    <p>Guess a number between 1 and 100</p>
+    
+    <input type="number" id="guess" placeholder="Enter your guess" min="1" max="100">
+    <button onclick="checkGuess()">Submit</button>
+    <button id="restart" onclick="restartGame()">Restart</button>
 
-    <div class="footer">
-        <div>© Group 47</div>
-        <a class="btc-link" href="https://en.wikipedia.org/wiki/Cryptocurrency_wallet" target="_blank">BTC Wallet</a>
-        <a class="github-link" href="https://github.com/jgreensmith/jgreensmith.github.io" target="_blank">View Source on GitHub</a>
-    </div>
+    <p id="message"></p>
+    <p id="attempts">Attempts left: 10</p>
+    <img id="dealer" src="evilLoanshark.jpg" alt="Dealer" style="display: none;">
 
-    <script src="script.js"></script>
+    <script>
+        let randomNumber;
+        let attemptsLeft;
+
+        function startGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attemptsLeft = 10;
+            document.getElementById("message").textContent = "";
+            document.getElementById("attempts").textContent = "Attempts left: " + attemptsLeft;
+            document.getElementById("guess").disabled = false;
+            document.getElementById("dealer").style.display = "none";
+            document.getElementById("restart").style.display = "none";
+        }
+
+        function checkGuess() {
+            let userGuess = parseInt(document.getElementById("guess").value);
+            let message = document.getElementById("message");
+            let dealerImage = document.getElementById("dealer");
+            let attemptsText = document.getElementById("attempts");
+            dealerImage.style.display = "block";
+
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                message.textContent = "Please enter a valid number between 1 and 100.";
+                message.style.color = "red";
+                return;
+            }
+
+            if (attemptsLeft > 0) {
+                attemptsLeft--;
+                attemptsText.textContent = "Attempts left: " + attemptsLeft;
+            }
+
+            if (attemptsLeft === 0) {
+                message.textContent = "Game Over! The correct number was " + randomNumber + ".";
+                message.style.color = "red";
+                document.getElementById("guess").disabled = true;
+                document.getElementById("restart").style.display = "block";
+                return;
+            }
+
+            if (userGuess < randomNumber) {
+                message.textContent = "Too low! Try again.";
+                message.style.color = "blue";
+            } else if (userGuess > randomNumber) {
+                message.textContent = "Too high! Try again.";
+                message.style.color = "orange";
+            } else {
+                message.textContent = "Correct! You guessed it!";
+                message.style.color = "green";
+                document.getElementById("guess").disabled = true;
+                document.getElementById("restart").style.display = "block";
+            }
+        }
+
+        function restartGame() {
+            startGame();
+            document.getElementById("guess").value = "";
+        }
+
+        startGame();
+    </script>
+
 </body>
 </html>

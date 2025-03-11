@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    <!-- Wrap all content in the container div -->
     <div class="container">
         <h1>Higher or Lower Game</h1>
         <p>Guess a number between 1 and 100</p>
@@ -19,76 +18,11 @@
 
         <p id="message"></p>
         <p id="attempts">Attempts left: 10</p>
+        <p id="record">Best Record: --</p>
     </div>
 
-    <script>
-        let randomNumber;
-        let attemptsLeft;
-        let gameOver = false;
-
-        function startGame() {
-            randomNumber = Math.floor(Math.random() * 100) + 1;
-            attemptsLeft = 10;
-            gameOver = false;
-            document.getElementById("message").textContent = "";
-            document.getElementById("attempts").textContent = "Attempts left: " + attemptsLeft;
-            document.getElementById("guess").disabled = false;
-            document.getElementById("submit").style.display = "inline-block"; // Make the submit button visible
-            document.getElementById("restart").classList.add("hidden");
-        }
-
-        function checkGuess() {
-            if (gameOver) return;
-
-            let userGuess = parseInt(document.getElementById("guess").value);
-            let message = document.getElementById("message");
-            let attemptsText = document.getElementById("attempts");
-
-            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-                message.textContent = "Please enter a valid number between 1 and 100.";
-                message.style.color = "red";
-                return;
-            }
-
-            if (attemptsLeft > 0) {
-                attemptsLeft--;
-                attemptsText.textContent = "Attempts left: " + attemptsLeft;
-            }
-
-            if (userGuess < randomNumber) {
-                message.textContent = "Too low! Try again.";
-                message.style.color = "blue";
-            } else if (userGuess > randomNumber) {
-                message.textContent = "Too high! Try again.";
-                message.style.color = "orange";
-            } else {
-                message.textContent = "Correct! You guessed it!";
-                message.style.color = "green";
-                endGame(); // End the game if the correct guess is made
-                return;
-            }
-
-            if (attemptsLeft === 0) {
-                message.textContent = "Game Over! The correct number was " + randomNumber + ".";
-                message.style.color = "red";
-                endGame(); // End the game if out of attempts
-            }
-        }
-
-        function endGame() {
-            gameOver = true;
-            document.getElementById("guess").disabled = true;
-            document.getElementById("submit").style.display = "none"; // Hide the submit button
-            document.getElementById("restart").classList.remove("hidden");
-        }
-
-        function restartGame() {
-            startGame();
-            document.getElementById("guess").value = "";
-        }
-
-        startGame();
-    </script>
+    <!-- Load the external JavaScript file -->
+    <script src="game.js"></script>
 
 </body>
 </html>

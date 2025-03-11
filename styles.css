@@ -1,55 +1,29 @@
-
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #222;
-}
-
-.board-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("map.jpg");
-}
-
-.map-image {
-    width: 100%;
-    height: 100%;
-    opacity: 0.5;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-}
-
-#board {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    width: 100vw;
-    height: 100vh;
-    border: 2px solid white;
-}
-
-.cell {
-    border: 1px solid rgb(252, 8, 183);
-    background-color: #dddddd03;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: background 0.3s;
-    width: 100px;
-    height: 100px;
-}
-
-.cell:hover {
-    background-color: #bbb;
-}
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #dealer {
+            width: 200px;
+            margin-top: 20px;
+        }
+        #restart {
+            display: none;
+        }
+    </style>

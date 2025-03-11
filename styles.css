@@ -1,19 +1,19 @@
-body, html {
-    height: 100%; /* Ensure full height */
+/* Ensure html and body behave as a single unit */
+html, body {
+    height: 100%; 
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     color: #333;
-    text-align: center;
 }
 
 .container {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
     height: 100vh; /* Take up full viewport height */
-    text-align: center;
 }
 
 h1 {
@@ -26,7 +26,6 @@ input, button {
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    text-align: center;
 }
 
 button {
@@ -34,38 +33,7 @@ button {
     color: white;
     cursor: pointer;
     transition: background 0.3s ease;
-    text-align: center;
 }
 
 button:hover {
-    background-color: #45a049;
-    text-align: center;
-}
-
-#message {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-}
-
-#dealer {
-    width: 150px;
-    margin-top: 20px;
-    text-align: center;
-}
-
-.hidden {
-    display: none;
-    text-align: center;
-}
-
-#restart {
-    background-color: #f44336;
-    color: white;
-    text-align: center;
-}
-
-#restart:hover {
-    background-color: #d32f2f;
-    text-align: center;
-}
+ 

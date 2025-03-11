@@ -33,12 +33,12 @@
             document.getElementById("message").textContent = "";
             document.getElementById("attempts").textContent = "Attempts left: " + attemptsLeft;
             document.getElementById("guess").disabled = false;
-            document.getElementById("submit").disabled = false;
+            document.getElementById("submit").style.display = "inline-block"; // Make the submit button visible
             document.getElementById("restart").classList.add("hidden");
         }
 
         function checkGuess() {
-            if (gameOver) return; // Stop further guesses once the game ends
+            if (gameOver) return;
 
             let userGuess = parseInt(document.getElementById("guess").value);
             let message = document.getElementById("message");
@@ -64,21 +64,21 @@
             } else {
                 message.textContent = "Correct! You guessed it!";
                 message.style.color = "green";
-                endGame(); // End the game once the correct number is guessed
+                endGame(); // End the game if the correct guess is made
                 return;
             }
 
             if (attemptsLeft === 0) {
                 message.textContent = "Game Over! The correct number was " + randomNumber + ".";
                 message.style.color = "red";
-                endGame();
+                endGame(); // End the game if out of attempts
             }
         }
 
         function endGame() {
             gameOver = true;
             document.getElementById("guess").disabled = true;
-            document.getElementById("submit").disabled = true;
+            document.getElementById("submit").style.display = "none"; // Hide the submit button
             document.getElementById("restart").classList.remove("hidden");
         }
 

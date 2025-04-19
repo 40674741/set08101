@@ -56,7 +56,7 @@ button:hover {
     right: 20px;
     padding: 15px 25px;
     font-size: 18px;
-    background-color: #ff6347; /* Tomato color */
+    background-color: #ff6347;
     color: white;
     border: none;
     border-radius: 10px;
@@ -68,9 +68,9 @@ button:hover {
     background-color: #e55347;
 }
 
-/* Style for the "Learn More About the Game" button in the top-left corner */
 /* Style for the "About the Game" button in the top-left corner */
 #aboutGameButton {
+    display: inline-block;
     position: fixed;
     top: 20px; /* Distance from the top of the screen */
     left: 20px; /* Distance from the left of the screen */

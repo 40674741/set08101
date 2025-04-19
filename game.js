@@ -73,18 +73,11 @@ function endGame() {
     document.getElementById("guess").disabled = true;
     document.getElementById("submit").style.display = "none"; // Hide the submit button
     document.getElementById("restart").classList.remove("hidden");
-
-    // Create and display the "Learn More About the Game" button
-    let aboutButton = document.createElement('button');
-    aboutButton.textContent = 'Learn More About the Game';
+    let aboutButton = document.createElement('about');
+    
     aboutButton.onclick = function() {
         window.location.href = 'aboutgame.html'; // Navigate to aboutgame.html
     };
-
-    // Append the button to the body (or to a specific section)
-    document.body.appendChild(aboutButton); // You could also append this to a specific div if needed
-}
-
 
 function restartGame() {
     startGame();

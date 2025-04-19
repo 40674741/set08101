@@ -15,9 +15,9 @@ function startGame() {
 
     // Display best record if it exists
     if (bestRecord !== null) {
-        document.getElementById("record").textContent = Best Record: ${bestRecord} guesses;
+        document.getElementById("record").textContent = `Best Record: ${bestRecord} guesses`;
     } else {
-        document.getElementById("record").textContent = Best Record: --;
+        document.getElementById("record").textContent = `Best Record: --`;
     }
 }
 
@@ -64,7 +64,7 @@ function updateRecord(currentScore) {
     if (bestRecord === null || currentScore < bestRecord) {
         bestRecord = currentScore;
         localStorage.setItem('bestRecord', bestRecord);
-        document.getElementById("record").textContent = Best Record: ${bestRecord} guesses;
+        document.getElementById("record").textContent = `Best Record: ${bestRecord} guesses`;
     }
 }
 

@@ -3,7 +3,6 @@ let attemptsLeft;
 let gameOver = false;
 let bestRecord = localStorage.getItem('bestRecord') ? parseInt(localStorage.getItem('bestRecord')) : null;
 
-
 function startGame() {
     randomNumber = Math.floor(Math.random() * 100) + 1;
     attemptsLeft = 10;
@@ -89,7 +88,7 @@ function restartGame() {
 
 // Simulate the donation process when the "Donate" button is clicked
 function donate() {
-    alert("Thanks for your donation of £100! Just kidding! :)");
+    alert("Thanks for your donation of £100!");
 
     // Redirect to the donation page (practical joke page)
     window.location.href = 'donate.html';

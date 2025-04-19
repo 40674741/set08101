@@ -44,9 +44,14 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Ensure the dynamically created button is visible */
+/* Ensure buttons are hidden by default */
+.hidden {
+    display: none;
+}
+
+/* Ensure the dynamically created button is visible when shown */
 #aboutGameButton {
-    display: inline-block; /* Make sure it appears */
+    display: inline-block; /* Ensure it appears when shown */
     padding: 10px 20px;
     margin-top: 20px;
     background-color: #4CAF50;
@@ -57,7 +62,25 @@ button:hover {
     transition: background 0.3s ease;
 }
 
-/* Hover effect for the new button */
+/* Hover effect for the about game button */
 #aboutGameButton:hover {
+    background-color: #45a049;
+}
+
+/* Ensuring the restart button also follows the same principle */
+#restart {
+    display: inline-block; /* Make sure it appears when shown */
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Hover effect for the restart button */
+#restart:hover {
     background-color: #45a049;
 }

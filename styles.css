@@ -68,20 +68,21 @@ button:hover {
     background-color: #e55347;
 }
 
-/* Ensuring the dynamically created button is visible when shown */
+/* Style for the "Learn More About the Game" button in the top-left corner */
 #aboutGameButton {
-    display: inline-block; /* Ensure it appears when shown */
+    position: fixed;
+    top: 20px; /* Distance from the top of the screen */
+    left: 20px; /* Distance from the left of the screen */
     padding: 10px 20px;
-    margin-top: 20px;
     background-color: #4CAF50;
     color: white;
     font-size: 16px;
     border: none;
     cursor: pointer;
     transition: background 0.3s ease;
+    border-radius: 5px;
 }
 
-/* Hover effect for the about game button */
 #aboutGameButton:hover {
     background-color: #45a049;
 }

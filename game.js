@@ -14,7 +14,7 @@ function startGame() {
     
     // Hide the buttons initially
     document.getElementById("restart").classList.add("hidden");
-    document.getElementById("aboutGameButton").classList.add("hidden");
+    document.getElementById("aboutGameButton");
 
     // Display best record if it exists
     if (bestRecord !== null) {

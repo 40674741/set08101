@@ -69,6 +69,7 @@ button:hover {
 }
 
 /* Style for the "Learn More About the Game" button in the top-left corner */
+/* Style for the "About the Game" button in the top-left corner */
 #aboutGameButton {
     position: fixed;
     top: 20px; /* Distance from the top of the screen */
@@ -81,11 +82,13 @@ button:hover {
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 5px;
+    z-index: 1000; /* Make sure it appears above other elements */
 }
 
 #aboutGameButton:hover {
     background-color: #45a049;
 }
+
 
 /* Ensuring the restart button also follows the same principle */
 #restart {

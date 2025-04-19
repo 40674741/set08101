@@ -11,9 +11,6 @@ function startGame() {
     document.getElementById("attempts").textContent = "Attempts left: " + attemptsLeft;
     document.getElementById("guess").disabled = false;
     document.getElementById("submit").style.display = "inline-block";
-    
-    // Hide the buttons initially
-    document.getElementById("restart").classList.add("hidden");
     document.getElementById("aboutGameButton");
 
     // Display best record if it exists

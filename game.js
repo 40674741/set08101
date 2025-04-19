@@ -73,6 +73,9 @@ function endGame() {
     document.getElementById("guess").disabled = true;
     document.getElementById("submit").style.display = "none"; // Hide the submit button
     document.getElementById("restart").classList.remove("hidden");
+    document.getElementById("aboutGameButton").style.display = "inline-block"; // Show the "Learn More About the Game" button
+}
+
 
     // Show link to aboutgame.html when game is over
     let aboutButton = document.createElement('button');

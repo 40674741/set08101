@@ -96,7 +96,7 @@ function restartGame() {
 
 // Simulate the donation process when the "Donate" button is clicked
 function donate() {
-    alert("Thanks for your donation of £100! Just kidding! :)");
+    alert("Thanks for your donation of £100!");
 
     // Redirect to the donation page (practical joke page)
     window.location.href = 'donate.html';

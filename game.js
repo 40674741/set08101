@@ -3,6 +3,7 @@ let attemptsLeft;
 let gameOver = false;
 let bestRecord = localStorage.getItem('bestRecord') ? parseInt(localStorage.getItem('bestRecord')) : null;
 
+
 function startGame() {
     randomNumber = Math.floor(Math.random() * 100) + 1;
     attemptsLeft = 10;

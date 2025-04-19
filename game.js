@@ -24,6 +24,14 @@ function startGame() {
     }
 }
 
+// Add event listener for the Enter key on the guess input
+document.getElementById("guess").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevent the default Enter key behavior (form submission)
+        checkGuess(); // Trigger the checkGuess function when Enter is pressed
+    }
+});
+
 function checkGuess() {
     if (gameOver) return;
 
@@ -88,7 +96,7 @@ function restartGame() {
 
 // Simulate the donation process when the "Donate" button is clicked
 function donate() {
-    alert("Thanks for your donation of £100!");
+    alert("Thanks for your donation of £100! Just kidding! :)");
 
     // Redirect to the donation page (practical joke page)
     window.location.href = 'donate.html';

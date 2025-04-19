@@ -11,6 +11,8 @@ function startGame() {
     document.getElementById("attempts").textContent = "Attempts left: " + attemptsLeft;
     document.getElementById("guess").disabled = false;
     document.getElementById("submit").style.display = "inline-block";
+    
+    // Hide the buttons initially
     document.getElementById("restart").classList.add("hidden");
     document.getElementById("aboutGameButton").classList.add("hidden");
 
@@ -73,8 +75,10 @@ function endGame() {
     gameOver = true;
     document.getElementById("guess").disabled = true;
     document.getElementById("submit").style.display = "none"; // Hide the submit button
-    document.getElementById("restart").classList.remove("hidden"); // Show the restart button
-    document.getElementById("aboutGameButton").classList.remove("hidden"); // Show the about game button
+    
+    // Show the restart and about game buttons
+    document.getElementById("restart").classList.remove("hidden");
+    document.getElementById("aboutGameButton").classList.remove("hidden");
 }
 
 function restartGame() {

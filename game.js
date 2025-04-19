@@ -74,14 +74,17 @@ function endGame() {
     document.getElementById("submit").style.display = "none"; // Hide the submit button
     document.getElementById("restart").classList.remove("hidden");
 
-    // Show the "Learn More About the Game" button after the game is over
+    // Create and display the "Learn More About the Game" button
     let aboutButton = document.createElement('button');
     aboutButton.textContent = 'Learn More About the Game';
     aboutButton.onclick = function() {
-        window.location.href = 'aboutgame.html';  // Navigate to aboutgame.html
+        window.location.href = 'aboutgame.html'; // Navigate to aboutgame.html
     };
-    document.body.appendChild(aboutButton);  // Append the button to the body
+
+    // Append the button to the body (or to a specific section)
+    document.body.appendChild(aboutButton); // You could also append this to a specific div if needed
 }
+
 
 function restartGame() {
     startGame();

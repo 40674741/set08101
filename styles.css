@@ -1,6 +1,6 @@
 /* Ensure html and body behave as a single unit */
 html, body {
-    height: 100%; 
+    height: 100%;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -8,6 +8,7 @@ html, body {
     color: #333;
 }
 
+/* Container that holds the main content, centering the content vertically and horizontally */
 .container {
     display: flex;
     flex-direction: column;
@@ -16,10 +17,12 @@ html, body {
     height: 100vh; /* Take up full viewport height */
 }
 
+/* Style for headings */
 h1 {
     color: #4CAF50;
 }
 
+/* Style for inputs and buttons */
 input, button {
     padding: 10px;
     margin: 10px;
@@ -29,6 +32,7 @@ input, button {
     width: 200px;
 }
 
+/* Button specific styles */
 button {
     background-color: #4CAF50;
     color: white;
@@ -37,4 +41,23 @@ button {
 }
 
 button:hover {
- 
+    background-color: #45a049;
+}
+
+/* Ensure the dynamically created button is visible */
+#aboutGameButton {
+    display: inline-block; /* Make sure it appears */
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Hover effect for the new button */
+#aboutGameButton:hover {
+    background-color: #45a049;
+}

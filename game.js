@@ -12,6 +12,7 @@ function startGame() {
     document.getElementById("guess").disabled = false;
     document.getElementById("submit").style.display = "inline-block";
     document.getElementById("restart").classList.add("hidden");
+    document.getElementById("aboutGameButton").classList.add("hidden");
 
     // Display best record if it exists
     if (bestRecord !== null) {
@@ -72,12 +73,9 @@ function endGame() {
     gameOver = true;
     document.getElementById("guess").disabled = true;
     document.getElementById("submit").style.display = "none"; // Hide the submit button
-    document.getElementById("restart").classList.remove("hidden");
-    let aboutButton = document.createElement('about');
-    
-    aboutButton.onclick = function() {
-        window.location.href = 'aboutgame.html'; // Navigate to aboutgame.html
-    };
+    document.getElementById("restart").classList.remove("hidden"); // Show the restart button
+    document.getElementById("aboutGameButton").classList.remove("hidden"); // Show the about game button
+}
 
 function restartGame() {
     startGame();

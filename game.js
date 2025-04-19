@@ -86,5 +86,13 @@ function restartGame() {
     document.getElementById("guess").value = "";
 }
 
+// Simulate the donation process when the "Donate" button is clicked
+function donate() {
+    alert("Thanks for your donation of £100! Just kidding! :)");
+
+    // Redirect to the donation page (practical joke page)
+    window.location.href = 'donate.html';
+}
+
 // Start the game when the page loads
 document.addEventListener("DOMContentLoaded", startGame);

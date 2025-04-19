@@ -3,27 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Higher or Lower Game</title>
+    <title>Number Guessing Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>Guess the Number Game</h1>
+    </header>
 
-    <div class="container">
-        <h1>Higher or Lower Game</h1>
-        <p>Guess a number between 1 and 100</p>
-        
-        <input type="number" id="guess" placeholder="Enter your guess" min="1" max="100">
-        <button id="submit" onclick="checkGuess()">Submit</button>
-        <button id="restart" onclick="restartGame()">Restart</button>
-       <button id="aboutGameButton" style="display: none;" onclick="window.location.href = 'aboutgame.html';">Learn More About the Game</button>
+    <main>
+        <section>
+            <h2>Guess the number between 1 and 100</h2>
+            <input type="number" id="guess" placeholder="Enter your guess" min="1" max="100">
+            <button id="submit" onclick="checkGuess()">Submit Guess</button>
+            <button id="restart" onclick="restartGame()" class="hidden">Restart Game</button>
+        </section>
 
-        <p id="message"></p>
-        <p id="attempts">Attempts left: 10</p>
-        <p id="record">Best Record: --</p>
-    </div>
+        <section>
+            <p id="attempts">Attempts left: 10</p>
+            <p id="message"></p>
+            <p id="record">Best Record: --</p>
+        </section>
+    </main>
 
-    <!-- Load the external JavaScript file -->
+    <footer>
+        <p>&copy; 2025 Number Guessing Game</p>
+    </footer>
+
     <script src="game.js"></script>
-
 </body>
 </html>

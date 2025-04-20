@@ -12,9 +12,9 @@ html, body {
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    height: 100vh; /* Take up full viewport height */
+    justify-content: center;
+    align-items: center; 
+    height: 100vh; 
 }
 
 /* Style for headings */
@@ -72,8 +72,8 @@ button:hover {
 #aboutGameButton {
     display: inline-block;
     position: fixed;
-    top: 20px; /* Distance from the top of the screen */
-    left: 20px; /* Distance from the left of the screen */
+    top: 20px; 
+    left: 20px; 
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
@@ -82,7 +82,7 @@ button:hover {
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 5px;
-    z-index: 1000; /* Make sure it appears above other elements */
+    z-index: 1000;
 }
 
 #aboutGameButton:hover {
@@ -92,7 +92,7 @@ button:hover {
 
 /* Ensuring the restart button also follows the same principle */
 #restart {
-    display: inline-block; /* Make sure it appears when shown */
+    display: inline-block; 
     padding: 10px 20px;
     margin-top: 20px;
     background-color: #4CAF50;
